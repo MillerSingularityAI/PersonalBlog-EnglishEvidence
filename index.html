@@ -57,6 +57,7 @@
     <button class="filter-btn" data-tag="Mind Map">MIND MAP</button>
     <button class="filter-btn" data-tag="Writing">WRITING</button>
     <button class="filter-btn" data-tag="Speaking">SPEAKING</button>
+    <button class="filter-btn" data-tag="Game">GAME</button>
   </div>
 
 
@@ -771,6 +772,165 @@
     </article>
 
 
+    <!-- ╔══════════════════════════════════════════════════╗
+       ║  ENTRY 08 · English Quiz Game                   ║
+       ╚══════════════════════════════════════════════════╝ -->
+    <article class="entry-card" data-tags="Game,Writing,Speaking">
+
+      <div class="card-topbar">
+        <div class="entry-num">08</div>
+        <div class="card-topbar-text">
+          <div class="card-code">INTERACTIVE · ENGLISH QUIZ</div>
+          <div class="card-meta">📅 2025 - 2026 · VOCABULARY & COMPREHENSION GAME</div>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <h2 class="card-title">// English Knowledge Quiz</h2>
+
+        <div class="card-tags">
+          <span class="tag" data-tag="Game">Game</span>
+          <span class="tag" data-tag="Writing">Writing</span>
+          <span class="tag" data-tag="Speaking">Speaking</span>
+        </div>
+
+        <p class="card-summary">
+          Test your English knowledge with this interactive quiz covering vocabulary,
+          grammar, and topics discussed throughout this portfolio. Can you get a perfect score?
+        </p>
+
+        <!-- Quiz Game Container -->
+        <div class="game-container" id="quizGame">
+          <div class="game-header">
+            <div class="game-title">🧠 ENGLISH QUIZ</div>
+            <div class="game-score" id="quizScore">SCORE: 0 / 10</div>
+          </div>
+
+          <div class="game-body">
+            <div class="quiz-progress">
+              <div class="quiz-progress-bar" id="quizProgressBar" style="width: 0%"></div>
+            </div>
+            <div class="quiz-question-num" id="quizQuestionNum">QUESTION 1 OF 10</div>
+            <div class="quiz-question" id="quizQuestion">Loading question...</div>
+            <div class="quiz-options" id="quizOptions"></div>
+            <div class="quiz-feedback" id="quizFeedback"></div>
+          </div>
+
+          <div class="game-footer">
+            <button class="game-btn" id="quizNextBtn" onclick="quizNext()" disabled>NEXT →</button>
+            <button class="game-btn game-btn-reset" id="quizResetBtn" onclick="quizReset()" style="display:none">↻ RESTART</button>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <button class="btn-read" onclick="toggleExpand(this)">READ FULL POST ↓</button>
+          <button class="btn-edit" onclick="toggleEdit(this)" title="Edit this post" data-editing="false">✏️</button>
+        </div>
+
+        <div class="card-post">
+          <div class="post-content" contenteditable="false">
+            <p>
+              This interactive quiz tests vocabulary, grammar, and comprehension skills
+              using topics from the portfolio entries. It covers themes such as media
+              literacy, critical thinking, narrative tenses, and academic discourse.
+            </p>
+            <h3>// How to Play</h3>
+            <p>
+              Select the correct answer for each question. You receive <strong>1 point</strong> for each correct
+              answer. After answering, click <em>NEXT</em> to proceed. Your final score is displayed at the end.
+            </p>
+            <h3>// Learning Benefit</h3>
+            <p>
+              Gamified learning reinforces vocabulary retention and reading comprehension.
+              Each question is designed to connect with content from the portfolio entries,
+              encouraging review and deeper engagement with the material.
+            </p>
+          </div>
+          <div class="post-wordcount">[ 0 WORDS ]</div>
+        </div>
+      </div>
+    </article>
+
+
+    <!-- ╔══════════════════════════════════════════════════╗
+       ║  ENTRY 09 · Word Search Puzzle                  ║
+       ╚══════════════════════════════════════════════════╝ -->
+    <article class="entry-card" data-tags="Game,Writing,Evidence">
+
+      <div class="card-topbar">
+        <div class="entry-num">09</div>
+        <div class="card-topbar-text">
+          <div class="card-code">INTERACTIVE · WORD SEARCH</div>
+          <div class="card-meta">📅 2025 - 2026 · VOCABULARY PUZZLE GAME</div>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <h2 class="card-title">// Word Search Puzzle</h2>
+
+        <div class="card-tags">
+          <span class="tag" data-tag="Game">Game</span>
+          <span class="tag" data-tag="Writing">Writing</span>
+          <span class="tag" data-tag="Evidence">Evidence</span>
+        </div>
+
+        <p class="card-summary">
+          Find hidden English vocabulary words in this interactive word search grid.
+          Words are drawn from academic and professional topics covered in this portfolio.
+        </p>
+
+        <!-- Word Search Game Container -->
+        <div class="game-container" id="wsGame">
+          <div class="game-header">
+            <div class="game-title">🔎 WORD SEARCH</div>
+            <div class="game-score" id="wsScore">FOUND: 0 / 8</div>
+          </div>
+
+          <div class="game-body">
+            <div class="ws-grid-wrapper">
+              <div class="ws-grid" id="wsGrid"></div>
+            </div>
+            <div class="ws-word-list" id="wsWordList"></div>
+            <div class="ws-feedback" id="wsFeedback"></div>
+          </div>
+
+          <div class="game-footer">
+            <button class="game-btn game-btn-reset" onclick="wsReset()">↻ NEW PUZZLE</button>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <button class="btn-read" onclick="toggleExpand(this)">READ FULL POST ↓</button>
+          <button class="btn-edit" onclick="toggleEdit(this)" title="Edit this post" data-editing="false">✏️</button>
+        </div>
+
+        <div class="card-post">
+          <div class="post-content" contenteditable="false">
+            <p>
+              This word search puzzle uses vocabulary from English language learning,
+              including terms related to critical thinking, academic writing, and
+              media literacy discussed across the portfolio.
+            </p>
+            <h3>// How to Play</h3>
+            <p>
+              Click on a letter to start selecting a word, then click on the last letter of the word.
+              Words can be found horizontally (left to right) and vertically (top to bottom).
+              Found words are highlighted on the grid and crossed off the word list.
+            </p>
+            <h3>// Vocabulary Focus</h3>
+            <p>
+              The hidden words are key terms from academic English: words like
+              <em>LITERACY, CRITICAL, EVIDENCE, FLUENCY, GRAMMAR, RHETORIC, COHESION,</em>
+              and <em>DISCOURSE</em>. Recognising these terms quickly is essential for
+              B1-B2 level reading comprehension.
+            </p>
+          </div>
+          <div class="post-wordcount">[ 0 WORDS ]</div>
+        </div>
+      </div>
+    </article>
+
+
   </main>
 
 
@@ -796,6 +956,7 @@
 
   <!-- Script -->
   <script src="blog.js"></script>
+  <script src="games.js"></script>
 
 </body>
 

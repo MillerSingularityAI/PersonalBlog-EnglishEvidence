@@ -190,4 +190,31 @@ function addEntry() {
   content.addEventListener('input', () => updateWordCount(content));
 
   card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  // Observe the new card for scroll animations
+  if (window.scrollObserver) {
+    window.scrollObserver.observe(card);
+  }
 }
+
+/* ── Scroll Animations ──────────────────────────────────── */
+function initScrollAnimations() {
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        obs.unobserve(entry.target); // Animate once
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+  window.scrollObserver = observer;
+
+  document.querySelectorAll('.entry-card, .hero, .filter-bar').forEach(el => {
+    observer.observe(el);
+  });
+}
+// Run on load
+document.addEventListener('DOMContentLoaded', initScrollAnimations);
+// Also run immediately in case DOM is already loaded
+initScrollAnimations();
