@@ -91,6 +91,15 @@ function toggleEdit(btn) {
 }
 
 
+/* ── Delete Entry ───────────────────────────────────────── */
+function deleteEntry(btn) {
+  if (confirm('Are you sure you want to delete this post?')) {
+    const card = btn.closest('.entry-card');
+    card.remove();
+  }
+}
+
+
 /* ── Word Count ─────────────────────────────────────────── */
 function updateWordCount(el) {
   const counter = el.closest('.card-post')?.querySelector('.post-wordcount');
@@ -170,6 +179,7 @@ function addEntry() {
       <div class="card-actions">
         <button class="btn-read" onclick="toggleExpand(this)">READ FULL POST ↓</button>
         <button class="btn-edit" onclick="toggleEdit(this)" title="Edit this post" data-editing="false">✏️</button>
+        <button class="btn-delete" onclick="deleteEntry(this)" title="Delete this post">🗑️</button>
       </div>
 
       <div class="card-post">

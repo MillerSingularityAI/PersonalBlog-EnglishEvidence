@@ -6,7 +6,7 @@
 /* ══════════════════════════════════════════════════════════
    QUIZ GAME
    ══════════════════════════════════════════════════════════ */
-const QUIZ_QUESTIONS = [
+const ALL_QUIZ_QUESTIONS = [
   {
     q: 'What does the acronym "PLE" stand for in the context of English learning?',
     opts: ['Professional Language Exam', 'Personal Learning Environment', 'Public Literacy Education', 'Primary Language Evaluation'],
@@ -56,14 +56,65 @@ const QUIZ_QUESTIONS = [
     q: 'What is the purpose of "signposting language" in a presentation?',
     opts: ['To add humor', 'To guide the audience through the structure', 'To cite references', 'To introduce new vocabulary'],
     ans: 1
+  },
+  {
+    q: 'Which competency is crucial to navigate AI-generated information?',
+    opts: ['Fast typing', 'Critical thinking', 'Coding skills', 'Passive reading'],
+    ans: 1
+  },
+  {
+    q: 'A "deepfake" refers to:',
+    opts: ['A poorly written essay', 'AI-generated synthetic media', 'A complex grammar rule', 'A type of interactive game'],
+    ans: 1
+  },
+  {
+    q: 'In academic presentations, how should one ideally maintain an appropriate tone?',
+    opts: ['Using slang', 'Using a formal register', 'Speaking very loudly', 'Using informal contractions'],
+    ans: 1
+  },
+  {
+    q: 'An example of an opinion marker used in spoken English is:',
+    opts: ['In summary', 'In my view', 'For example', 'However'],
+    ans: 1
+  },
+  {
+    q: 'What does the term "deterrence" mean in the context of criminal justice?',
+    opts: ['Rewarding good behavior', 'Discouraging criminal acts through fear of consequences', 'Rehabilitating offenders', 'A type of trial'],
+    ans: 1
+  },
+  {
+    q: 'Which language feature is often used to acknowledge an opposing argument?',
+    opts: ['Concession phrase', 'Hedging expression', 'Opinion marker', 'Sequence connector'],
+    ans: 0
+  },
+  {
+    q: 'What is a key component of a personal learning environment (PLE)?',
+    opts: ['Mandatory exams', 'Self-directed online platforms', 'A physical classroom only', 'Standardized textbooks'],
+    ans: 1
+  },
+  {
+    q: 'When editing a written draft, what does "coherence" refer to?',
+    opts: ['Perfect spelling', 'Logical connection of ideas', 'Using long words', 'Correct punctuation'],
+    ans: 1
+  },
+  {
+    q: 'What is the primary purpose of writing a chronicle?',
+    opts: ['To persuade the reader', 'To narrate past events in chronological order', 'To explain a scientific process', 'To define a simple concept'],
+    ans: 1
+  },
+  {
+    q: 'The illusion of competence without genuine understanding caused by uncritical reliance on AI is called:',
+    opts: ['Artificial intelligence', 'False mastery', 'Deep learning', 'Media literacy'],
+    ans: 1
   }
 ];
 
+let currentQuizQuestions = [];
 let quizState = { current: 0, score: 0, answered: false };
 
 function quizRender() {
   const { current, score } = quizState;
-  const total = QUIZ_QUESTIONS.length;
+  const total = currentQuizQuestions.length;
 
   if (current >= total) {
     // Show final result
@@ -92,7 +143,7 @@ function quizRender() {
     return;
   }
 
-  const item = QUIZ_QUESTIONS[current];
+  const item = currentQuizQuestions[current];
   document.getElementById('quizQuestionNum').textContent = `QUESTION ${current + 1} OF ${total}`;
   document.getElementById('quizProgressBar').style.width = `${((current) / total) * 100}%`;
   document.getElementById('quizQuestion').textContent = item.q;
@@ -118,7 +169,7 @@ function quizAnswer(idx) {
   if (quizState.answered) return;
   quizState.answered = true;
 
-  const item = QUIZ_QUESTIONS[quizState.current];
+  const item = currentQuizQuestions[quizState.current];
   const buttons = document.querySelectorAll('#quizOptions .quiz-opt');
   const feedback = document.getElementById('quizFeedback');
 
@@ -137,7 +188,7 @@ function quizAnswer(idx) {
     feedback.className = 'quiz-feedback wrong';
   }
 
-  document.getElementById('quizScore').textContent = `SCORE: ${quizState.score} / ${QUIZ_QUESTIONS.length}`;
+  document.getElementById('quizScore').textContent = `SCORE: ${quizState.score} / ${currentQuizQuestions.length}`;
   document.getElementById('quizNextBtn').disabled = false;
 }
 
@@ -147,6 +198,10 @@ function quizNext() {
 }
 
 function quizReset() {
+  // Select 10 random questions from the pool
+  const shuffled = [...ALL_QUIZ_QUESTIONS].sort(() => Math.random() - 0.5);
+  currentQuizQuestions = shuffled.slice(0, 10);
+
   quizState = { current: 0, score: 0, answered: false };
   document.getElementById('quizNextBtn').style.display = '';
   document.getElementById('quizResetBtn').style.display = 'none';
@@ -154,15 +209,20 @@ function quizReset() {
 }
 
 // Initialize quiz
-quizRender();
+quizReset();
 
 
 /* ══════════════════════════════════════════════════════════
    WORD SEARCH GAME
    ══════════════════════════════════════════════════════════ */
-const WS_WORDS = ['LITERACY', 'CRITICAL', 'EVIDENCE', 'FLUENCY', 'GRAMMAR', 'RHETORIC', 'COHESION', 'DISCOURSE'];
+const ALL_WS_WORDS = [
+  'LITERACY', 'CRITICAL', 'EVIDENCE', 'FLUENCY', 'GRAMMAR', 'RHETORIC', 'COHESION', 'DISCOURSE',
+  'NARRATIVE', 'CHRONICLE', 'COGNITIVE', 'DETERRENCE', 'JUSTICE', 'OFFLOADING', 'SYNTHETIC',
+  'ALGORITHM', 'VOCABULARY', 'HEDGING', 'ARGUMENT', 'MEDIA', 'DEEPFAKE', 'CONCESSION', 'MASTERY', 'EVALUATE'
+];
 const WS_SIZE = 12;
 
+let currentWsWords = [];
 let wsGridData = [];
 let wsPlaced = [];   // { word, cells: [{r,c}] }
 let wsFound = [];
@@ -174,7 +234,7 @@ function wsGenerateGrid() {
   wsPlaced = [];
 
   // Shuffle words so placement varies
-  const shuffled = [...WS_WORDS].sort(() => Math.random() - 0.5);
+  const shuffled = [...currentWsWords].sort(() => Math.random() - 0.5);
 
   for (const word of shuffled) {
     let placed = false;
@@ -247,7 +307,7 @@ function wsRenderGrid() {
 function wsRenderWordList() {
   const list = document.getElementById('wsWordList');
   list.innerHTML = '';
-  for (const w of WS_WORDS) {
+  for (const w of currentWsWords) {
     const span = document.createElement('span');
     span.className = 'ws-word' + (wsFound.includes(w) ? ' ws-word-found' : '');
     span.textContent = w;
@@ -325,10 +385,10 @@ function wsCellClick(r, c) {
       const wordEl = document.getElementById(`ws-word-${match.word}`);
       if (wordEl) wordEl.classList.add('ws-word-found');
 
-      document.getElementById('wsScore').textContent = `FOUND: ${wsFound.length} / ${WS_WORDS.length}`;
+      document.getElementById('wsScore').textContent = `FOUND: ${wsFound.length} / ${currentWsWords.length}`;
       document.getElementById('wsFeedback').textContent = `✓ Found "${match.word}"!`;
 
-      if (wsFound.length === WS_WORDS.length) {
+      if (wsFound.length === currentWsWords.length) {
         document.getElementById('wsFeedback').textContent = '🏆 ALL WORDS FOUND! CONGRATULATIONS!';
       }
     } else {
@@ -338,10 +398,14 @@ function wsCellClick(r, c) {
 }
 
 function wsReset() {
+  // Randomly select 8 words from the pool
+  const shuffled = [...ALL_WS_WORDS].sort(() => Math.random() - 0.5);
+  currentWsWords = shuffled.slice(0, 8);
+
   wsFound = [];
   wsSelection = null;
   document.getElementById('wsFeedback').textContent = '';
-  document.getElementById('wsScore').textContent = `FOUND: 0 / ${WS_WORDS.length}`;
+  document.getElementById('wsScore').textContent = `FOUND: 0 / ${currentWsWords.length}`;
   wsGenerateGrid();
   wsRenderGrid();
   wsRenderWordList();

@@ -647,6 +647,13 @@ nav::after {
   transition:all var(--transition); color:var(--muted);
 }
 .btn-edit:hover { border-color:var(--accent2); color:var(--accent2); box-shadow:var(--glow-v); }
+.btn-delete {
+  padding:0.72rem 0.9rem;
+  background:var(--surface2); border:1.5px solid var(--border);
+  border-radius:5px; font-size:1rem; cursor:pointer;
+  transition:all var(--transition); color:var(--muted);
+}
+.btn-delete:hover { border-color:var(--accent3); color:var(--accent3); box-shadow:var(--glow-m); }
 
 /* ════════════════════════ FAB ═══════════════════════════ */
 .fab {
