@@ -5,7 +5,7 @@
 
 /* ── Theme Toggle ────────────────────────────────────────── */
 const themeBtn = document.getElementById('themeBtn');
-const html     = document.documentElement;
+const html = document.documentElement;
 
 function applyTheme(dark) {
   html.setAttribute('data-theme', dark ? 'dark' : 'light');
@@ -61,8 +61,8 @@ initYTPlayers();
 
 /* ── Read More / Collapse ───────────────────────────────── */
 function toggleExpand(btn) {
-  const card   = btn.closest('.entry-card');
-  const post   = card.querySelector('.card-post');
+  const card = btn.closest('.entry-card');
+  const post = card.querySelector('.card-post');
   const isOpen = post.classList.toggle('open');
   btn.textContent = isOpen ? 'COLLAPSE ↑' : 'READ FULL POST ↓';
 }
@@ -70,14 +70,14 @@ function toggleExpand(btn) {
 
 /* ── Edit Mode ──────────────────────────────────────────── */
 function toggleEdit(btn) {
-  const card      = btn.closest('.entry-card');
+  const card = btn.closest('.entry-card');
   const isEditing = btn.getAttribute('data-editing') === 'true';
-  const fields    = card.querySelectorAll('.card-title, .card-summary, .post-content, .card-code, .card-meta');
+  const fields = card.querySelectorAll('.card-title, .card-summary, .post-content, .card-code, .card-meta');
 
   fields.forEach(el => { el.contentEditable = isEditing ? 'false' : 'true'; });
 
   btn.textContent = isEditing ? '✏️' : '💾';
-  btn.title       = isEditing ? 'Edit this post' : 'Save changes';
+  btn.title = isEditing ? 'Edit this post' : 'Save changes';
   btn.setAttribute('data-editing', String(!isEditing));
 
   if (!isEditing) {
@@ -127,7 +127,7 @@ filterBtns.forEach(btn => {
     const selected = btn.dataset.tag;
 
     document.querySelectorAll('.entry-card').forEach(card => {
-      const tags    = (card.dataset.tags || '').split(',').map(t => t.trim());
+      const tags = (card.dataset.tags || '').split(',').map(t => t.trim());
       const visible = selected === 'all' || tags.includes(selected);
       card.style.display = visible ? '' : 'none';
     });
@@ -149,12 +149,12 @@ function addEntry() {
   const count = stack.querySelectorAll('.entry-card').length + 1;
 
   const card = document.createElement('article');
-  card.className    = 'entry-card';
+  card.className = 'entry-card';
   card.dataset.tags = 'Writing';
 
   card.innerHTML = `
     <div class="card-topbar">
-      <div class="entry-num">${String(count).padStart(2,'0')}</div>
+      <div class="entry-num">${String(count).padStart(2, '0')}</div>
       <div class="card-topbar-text">
         <div class="card-code" contenteditable="false">[EDIT CODE]</div>
         <div class="card-meta" contenteditable="false">📅 2025 · New Activity</div>
@@ -179,6 +179,7 @@ function addEntry() {
       <div class="card-actions">
         <button class="btn-read" onclick="toggleExpand(this)">READ FULL POST ↓</button>
         <button class="btn-edit" onclick="toggleEdit(this)" title="Edit this post" data-editing="false">✏️</button>
+        <button class="btn-date" onclick="openCalendar(this)" title="Change date">📅</button>
         <button class="btn-delete" onclick="deleteEntry(this)" title="Delete this post">🗑️</button>
       </div>
 

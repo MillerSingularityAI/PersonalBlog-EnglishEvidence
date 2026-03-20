@@ -32,7 +32,7 @@
      HERO
      ═══════════════════════════════════════════════════════ -->
   <section class="hero" id="home">
-    <div class="hero-avatar">🎓</div>
+    <div class="hero-avatar" id="heroAvatar"></div>
     <div class="hero-text">
 
       <h1>Miller Salcedo <span>Portfolio English Skills</span></h1>
@@ -105,6 +105,7 @@
         <div class="card-actions">
           <button class="btn-read" onclick="toggleExpand(this)">READ FULL POST ↓</button>
           <button class="btn-edit" onclick="toggleEdit(this)" title="Edit this post" data-editing="false">✏️</button>
+          <button class="btn-date" onclick="openCalendar(this)" title="Change date">📅</button>
           <button class="btn-delete" onclick="deleteEntry(this)" title="Delete this post">🗑️</button>
         </div>
 
@@ -196,6 +197,7 @@
         <div class="card-actions">
           <button class="btn-read" onclick="toggleExpand(this)">READ FULL POST ↓</button>
           <button class="btn-edit" onclick="toggleEdit(this)" title="Edit this post" data-editing="false">✏️</button>
+          <button class="btn-date" onclick="openCalendar(this)" title="Change date">📅</button>
           <button class="btn-delete" onclick="deleteEntry(this)" title="Delete this post">🗑️</button>
         </div>
 
@@ -273,6 +275,7 @@
         <div class="card-actions">
           <button class="btn-read" onclick="toggleExpand(this)">READ FULL POST ↓</button>
           <button class="btn-edit" onclick="toggleEdit(this)" title="Edit this post" data-editing="false">✏️</button>
+          <button class="btn-date" onclick="openCalendar(this)" title="Change date">📅</button>
           <button class="btn-delete" onclick="deleteEntry(this)" title="Delete this post">🗑️</button>
         </div>
 
@@ -347,6 +350,7 @@
         <div class="card-actions">
           <button class="btn-read" onclick="toggleExpand(this)">READ FULL POST ↓</button>
           <button class="btn-edit" onclick="toggleEdit(this)" title="Edit this post" data-editing="false">✏️</button>
+          <button class="btn-date" onclick="openCalendar(this)" title="Change date">📅</button>
           <button class="btn-delete" onclick="deleteEntry(this)" title="Delete this post">🗑️</button>
         </div>
 
@@ -424,6 +428,7 @@
         <div class="card-actions">
           <button class="btn-read" onclick="toggleExpand(this)">READ FULL POST ↓</button>
           <button class="btn-edit" onclick="toggleEdit(this)" title="Edit this post" data-editing="false">✏️</button>
+          <button class="btn-date" onclick="openCalendar(this)" title="Change date">📅</button>
           <button class="btn-delete" onclick="deleteEntry(this)" title="Delete this post">🗑️</button>
         </div>
 
@@ -443,7 +448,7 @@
             <h3>// My PLE Components</h3>
             <p>
               My PLE for English includes: (1) <strong>Digital tools</strong> — apps such as
-              Duolingo, Anki, and Grammarly; (2) <strong>Online platforms</strong> — YouTube
+              Coursera, Github, and AI Tools; (2) <strong>Online platforms</strong> — YouTube
               channels, podcasts, and academic reading databases; (3) <strong>Social
                 interactions</strong> — language exchange platforms and online forums;
               (4) <strong>Formal learning</strong> — SENA course materials and guided activities.
@@ -506,6 +511,7 @@
         <div class="card-actions">
           <button class="btn-read" onclick="toggleExpand(this)">READ FULL POST ↓</button>
           <button class="btn-edit" onclick="toggleEdit(this)" title="Edit this post" data-editing="false">✏️</button>
+          <button class="btn-date" onclick="openCalendar(this)" title="Change date">📅</button>
           <button class="btn-delete" onclick="deleteEntry(this)" title="Delete this post">🗑️</button>
         </div>
 
@@ -703,6 +709,7 @@
         <div class="card-actions">
           <button class="btn-read" onclick="toggleExpand(this)">READ FULL POST ↓</button>
           <button class="btn-edit" onclick="toggleEdit(this)" title="Edit this post" data-editing="false">✏️</button>
+          <button class="btn-date" onclick="openCalendar(this)" title="Change date">📅</button>
           <button class="btn-delete" onclick="deleteEntry(this)" title="Delete this post">🗑️</button>
         </div>
 
@@ -833,6 +840,7 @@
         <div class="card-actions">
           <button class="btn-read" onclick="toggleExpand(this)">READ FULL POST ↓</button>
           <button class="btn-edit" onclick="toggleEdit(this)" title="Edit this post" data-editing="false">✏️</button>
+          <button class="btn-date" onclick="openCalendar(this)" title="Change date">📅</button>
           <button class="btn-delete" onclick="deleteEntry(this)" title="Delete this post">🗑️</button>
         </div>
 
@@ -912,6 +920,7 @@
           <button class="btn-read" onclick="toggleExpand(this)">READ FULL POST ↓</button>
           <button class="btn-edit" onclick="toggleEdit(this)" title="Edit this post" data-editing="false">✏️</button>
           <button class="btn-delete" onclick="deleteEntry(this)" title="Delete this post">🗑️</button>
+          <button class="btn-date" onclick="openCalendar(this)" title="Change date">📅</button>
         </div>
 
         <div class="card-post">
@@ -965,8 +974,11 @@
   <button class="fab" onclick="addEntry()" aria-label="Add new entry" title="Add new entry">+</button>
 
   <!-- Script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="blog.js"></script>
+  <script src="calendar.js"></script>
   <script src="games.js"></script>
+  <script src="galaxy.js"></script>
 
 </body>
 
