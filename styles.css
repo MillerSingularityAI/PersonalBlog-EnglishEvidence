@@ -544,6 +544,12 @@ nav::after {
   opacity: 1;
 }
 
+.card-meta svg {
+  width: 1.1em;
+  height: 1.1em;
+  vertical-align: -0.15em !important;
+}
+
 /* Body */
 .card-body {
   padding: 1.8rem 1.8rem 1.8rem 2.1rem;

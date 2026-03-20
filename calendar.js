@@ -88,19 +88,20 @@
   }
 
   /* ── Pick a date ───────────────────────────── */
+  const svgDate = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>';
+
   function pick(y, m, d) {
     if (!activeMetaEl) return;
 
     const mm = String(m + 1).padStart(2, '0');
     const dd = String(d).padStart(2, '0');
 
-    // Get the rest of the meta text after the date portion
-    const full = activeMetaEl.textContent;
-    // Match the date part: "📅 YYYY - YYYY" or "📅 YYYY-MM-DD" or "📅 YYYY"
-    const rest = full.replace(/^📅\s*[\d\s\-]+/, '').trim();
-    const sep = rest.startsWith('·') ? ' ' : ' · ';
+    // Get the rest of the meta text after the date portion, stripping any SVGs
+    const full = activeMetaEl.textContent.trim();
+    // Match the date part: "YYYY - YYYY" or "YYYY-MM-DD" or "YYYY", handling optional emoji if somehow preserved
+    const rest = full.replace(/^(?:📅\s*)?[\d\s\-]+/, '').trim();
 
-    activeMetaEl.textContent = `📅 ${y}-${mm}-${dd}${rest ? sep + rest.replace(/^·\s*/, '') : ''}`;
+    activeMetaEl.innerHTML = `${svgDate} ${y}-${mm}-${dd}${rest ? ' · ' + rest.replace(/^[·\-]\s*/, '') : ''}`;
     close();
   }
 
