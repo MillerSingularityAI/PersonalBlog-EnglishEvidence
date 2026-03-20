@@ -1,12 +1,18 @@
-﻿<!DOCTYPE html>
-<html lang="en" data-theme="dark">
-
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <title>Miller Salcedo Portfolio English Skills</title>
   <link rel="stylesheet" href="styles.css" />
+  <script>
+    (function () {
+      const saved = localStorage.getItem('blog-theme');
+      const isDark = saved ? saved === 'dark' : false; // Default to light
+      document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+    })();
+  </script>
 </head>
 
 <body>

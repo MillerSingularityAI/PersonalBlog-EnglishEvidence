@@ -1,4 +1,4 @@
-﻿/* ═══════════════════════════════════════════════════════════
+/* ═══════════════════════════════════════════════════════════
    MILLER SALCEDO PORTFOLIO ENGLISH SKILLS — blog.js  |  Neon Futurista
    ═══════════════════════════════════════════════════════════ */
 'use strict';
@@ -18,9 +18,9 @@ themeBtn.addEventListener('click', () => {
   applyTheme(html.getAttribute('data-theme') !== 'dark');
 });
 
-// Default: dark. Restore saved preference.
+// Default: light. Restore saved preference.
 const saved = localStorage.getItem('blog-theme');
-applyTheme(saved ? saved === 'dark' : true);
+applyTheme(saved ? saved === 'dark' : false);
 
 
 /* ── YouTube Custom Player (Error 153 fix) ───────────────── */
