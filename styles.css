@@ -57,6 +57,41 @@
   --glow-g: 0 0 4px rgba(0, 102, 64, 0.45);
 }
 
+/* ── Inline Style Replacements ──────────────────────────── */
+.v-middle,
+.card-topbar-text svg,
+.btn-edit svg,
+.btn-date svg,
+.btn-delete svg,
+.fab svg {
+  vertical-align: middle;
+}
+
+.card-media.placeholder-wrap.academic-article {
+  border: 1px solid rgba(0, 245, 255, 0.18);
+  background: rgba(0, 245, 255, 0.03);
+  padding: 1rem 1.4rem;
+  text-align: left;
+}
+
+.placeholder-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.placeholder-text {
+  color: var(--text-body);
+  font-size: 0.88rem;
+  font-style: italic;
+}
+
+.hidden {
+  display: none !important;
+}
+
 /* ── Reset ──────────────────────────────────────────────── */
 *,
 *::before,
@@ -1082,6 +1117,10 @@ footer p {
   }
 }
 
+.new-entry-anim {
+  animation: fadeUp 0.5s ease both;
+}
+
 @keyframes floatText {
   0% {
     transform: translateY(0);
@@ -1342,6 +1381,7 @@ footer p {
 }
 
 .quiz-progress-bar {
+  width: 0%;
   height: 100%;
   background: linear-gradient(90deg, var(--accent), var(--accent4));
   border-radius: 2px;
